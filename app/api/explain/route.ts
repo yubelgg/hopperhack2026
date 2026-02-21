@@ -13,17 +13,22 @@ export async function POST(req: NextRequest) {
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-  const prompt = `You are a literary assistant helping readers understand books deeply.
-The reader is studying "${bookName}" and doesn't understand this passage:
+  const prompt = `You are a concise literary assistant. The reader is studying "${bookName}" and doesn't understand this passage:
 
 "${passage}"
 
-Please explain:
-1. **What this passage means** — in plain, accessible language
-2. **How it fits the broader story and themes** of "${bookName}"
-3. **Any important literary devices, symbolism, or character significance**
+Respond in exactly three short sections (2–3 sentences each) using markdown headers:
 
-Keep your explanation warm, clear, and helpful for someone who is struggling with this section.`;
+### What this passage means
+Plain-language explanation.
+
+### How it fits the story
+How this connects to the plot and themes of "${bookName}".
+
+### Literary devices
+Key symbols, techniques, or character significance — only what's most relevant.
+
+Be warm and clear. Do not add a summary paragraph or closing question.`;
 
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
