@@ -69,16 +69,18 @@ export default function Home() {
     }
 
     return (
-        <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4">
+        <div className="min-h-screen bg-transparent py-12 px-4">
             <main className="mx-auto max-w-2xl">
-                {/* Header */}
+                
+               {/* Header */}
                 <div className="mb-10 text-center">
-                    <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                        LitHelper
+                    <h1 className={`text-6xl font-bold tracking-tight text-zinc-900 mb-2 italic`} 
+                        style={{ fontFamily: '"Computer Modern Serif", "CMU Serif", "Times New Roman", serif' }}>
+                        understory
                     </h1>
-                    <p className="mt-2 text-lg text-zinc-500 dark:text-zinc-400">
-                        Understand any passage, any book.
-                    </p>
+                        <p className="mt-2 text-lg text-zinc-500">
+                            Understand any passage, any book.
+                        </p>
                 </div>
 
                 {/* Form */}
